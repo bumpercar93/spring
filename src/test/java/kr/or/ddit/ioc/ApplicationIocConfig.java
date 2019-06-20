@@ -28,5 +28,4 @@ public class ApplicationIocConfig {
 		return boardService;
 	}
 	
-	
 }
