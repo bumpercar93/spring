@@ -20,6 +20,7 @@ public class BoardServiceImpl implements IBoardService {
 		this.boardDao = boardDao;
 	}
 	
+	@Override
 	public IBoardDao getBoardDao() {
 		return boardDao;
 	}
