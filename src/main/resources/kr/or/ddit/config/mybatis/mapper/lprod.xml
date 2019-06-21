@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="lprod">
+ 	
+ 	<select id="lprodPagingList" parameterType="pageVO" resultType="lprodVO">
+ 		select * 
+		from (select a.*, rownum rn
+	      from
+	        (select  u.*
+	         from    lprod u
+	         order by lprod_id) a)
+		where rn &gt;= (#{page}-1)*#{pageSize}+1 and rn &lt;= #{page}*#{pageSize}
+ 	</select>
+ 	
+ 	<select id="lprodCnt" resultType="int">
+ 		select	count(*)
+ 		from	lprod
+ 	</select>
+ 	
+ </mapper>
