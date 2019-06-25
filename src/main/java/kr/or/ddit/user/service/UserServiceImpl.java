@@ -55,4 +55,9 @@ public class UserServiceImpl implements IUserService {
 		userDao.deleteUser(userId);
 	}
 
+	@Override
+	public UserVO getUser(String userId) {
+		return userDao.getUser(userId);
+	}
+
 }

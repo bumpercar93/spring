@@ -36,4 +36,6 @@ public interface IUserService {
 	* Method 설명 : 사용자 삭제
 	 */
 	void deleteUser(String userId);
+
+	UserVO getUser(String userId);
 }

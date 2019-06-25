@@ -11,12 +11,14 @@
 		<property name="dataSource" ref="datasource"/>
 	</bean>
 	
+	<!-- 트랜잭션 관리 위임 -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice>
 	
+	<!-- 적용 -->
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice" pointcut="execution(* kr.or.ddit..service.*.*(..))"/>
 	</aop:config>

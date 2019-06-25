@@ -54,5 +54,10 @@ public class UserDaoImpl implements IUserDao {
 	public void deleteUser(String userId) {
 		sqlSession.delete("user.deleteUser", userId);
 	}
+
+	@Override
+	public UserVO getUser(String userId) {
+		return sqlSession.selectOne("user.getUser", userId);
+	}
 	
 }
