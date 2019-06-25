@@ -16,10 +16,10 @@ import kr.or.ddit.board.service.IBoardService;
 @ContextConfiguration(classes = {ApplicationIocConfig.class})
 public class ApplicationIocConfigTest {
 
-	@Resource(name = "getBoardDao")
+	@Resource(name = "boardDaoImpl")
 	private IBoardDao boardDao;
 	
-	@Resource(name = "getBoardDao")
+	@Resource(name = "boardDaoImpl")
 	private IBoardDao boardDao2;
 	
 	@Resource(name = "getBoardService")

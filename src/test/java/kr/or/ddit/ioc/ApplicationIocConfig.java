@@ -12,7 +12,7 @@ public class ApplicationIocConfig {
 	
 	// <bean id="boardDao" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
 	// @Bean(name = {"boardDao"}) // 이름을 메서드명말고 임의로 지정해줄 수 있다. 배열안에 여러가지 이름을 가질 수도 있다.
-	@Bean
+	@Bean(name = "boardDaoImpl")
 	public IBoardDao getBoardDao() {
 		return new BoardDaoImpl();
 	}

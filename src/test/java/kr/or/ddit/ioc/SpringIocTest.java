@@ -26,7 +26,7 @@ public class SpringIocTest {
 				new ClassPathXmlApplicationContext("classpath:kr/or/ddit/ioc/application-ioc-test.xml");
 
 		/***When***/
-		IBoardService boardService = (IBoardService) context.getBean("boardService");
+		IBoardService boardService = (IBoardService) context.getBean("boardServiceImpl");
 		String result = boardService.sayHello();
 		
 		/***Then***/

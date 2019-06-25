@@ -17,7 +17,7 @@ import kr.or.ddit.board.service.IBoardService;
 @ContextConfiguration("classpath:kr/or/ddit/ioc/application-ioc-test.xml")
 public class SpringIocJunitTest {
 	
-	@Resource(name = "boardDao")
+	@Resource(name = "boardDaoImpl")
 	private IBoardDao boardDao;
 	
 	@Resource(name = "boardDaoPrototype")
@@ -26,10 +26,10 @@ public class SpringIocJunitTest {
 	@Resource(name = "boardDaoPrototype")
 	private IBoardDao boardDaoPrototype2;
 	
-	@Resource(name = "boardService")
+	@Resource(name = "boardServiceImpl")
 	private IBoardService boardService;
 
-	@Resource(name = "boardService")
+	@Resource(name = "boardServiceImpl")
 	private IBoardService boardService2;
 	
 	@Resource(name = "boardServiceConstructor")

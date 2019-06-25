@@ -22,15 +22,15 @@
 	<!-- 사용자 페이지 리스트 조회 -->
 	<!-- 1. < : &lt; , > : &gt; -->
 	<!-- 2. <![CDATA[ ]]> 안에 쿼리문 작성 -->
-<!-- 	<select id="userPagingList" parameterType="pageVO" resultType="userVO"> -->
-<!-- 		select *  -->
-<!-- 		from (select a.*, rownum rn -->
-<!-- 	      from -->
-<!-- 	        (select  u.* -->
-<!-- 	         from    users u -->
-<!-- 	         order by userid) a) -->
-<!-- 		where rn &gt;= (#{page}-1)*#{pageSize}+1 and rn &lt;= #{page}*#{pageSize} -->
-<!-- 	</select> -->
+	<select id="userPagingList" parameterType="pageVO" resultType="userVO">
+		select * 
+		from (select a.*, rownum rn
+	      from
+	        (select  u.*
+	         from    users u
+	         order by userid) a)
+		where rn &gt;= (#{page}-1)*#{pageSize}+1 and rn &lt;= #{page}*#{pageSize}
+	</select>
 	
 	<!-- 사용자 전체수 조회 -->
 	<select id="usersCnt" resultType="int">

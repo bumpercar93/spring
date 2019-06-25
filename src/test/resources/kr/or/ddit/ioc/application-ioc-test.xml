@@ -8,20 +8,20 @@
 	<!-- boardService 등록, boardService를 등록하기 위해서는 boardDao 필요 -->
 	
 	<!-- IBoardDao boardDao = new BoardDaoImpl(); -->
-	<bean id="boardDao" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
+	<bean id="boardDaoImpl" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
 	
 	<!-- prototype scope boardDao -->
 	<!-- prototype scope : 요청시 마다 새로운 객체를 만들어서 준다 -->
 	<bean id="boardDaoPrototype" class="kr.or.ddit.board.dao.BoardDaoImpl" scope="prototype"/>
 	
-	<bean id="boardService" class="kr.or.ddit.board.service.BoardServiceImpl">
+	<bean id="boardServiceImpl" class="kr.or.ddit.board.service.BoardServiceImpl">
 		<!-- boardService의 filed, property -->
-		<property name="boardDao" ref="boardDao"/>
+		<property name="boardDao" ref="boardDaoImpl"/>
 	</bean>
 	
 	<bean id="boardServiceConstructor" class="kr.or.ddit.board.service.BoardServiceImpl">
 		<!-- constructor injection(생성자) -->
-		<constructor-arg ref="boardDao"/>
+		<constructor-arg ref="boardDaoImpl"/>
 	</bean>
 	
 </beans>

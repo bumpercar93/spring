@@ -3,10 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="bDao" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
+	<bean id="boardDaoImpl" class="kr.or.ddit.board.dao.BoardDaoImpl"/>
 	
-	<bean id="bService" class="kr.or.ddit.board.service.BoardServiceImpl">
-		<property name="boardDao" ref="bDao"/>
+	<bean id="boardServiceImpl" class="kr.or.ddit.board.service.BoardServiceImpl">
+		<property name="boardDao" ref="boardDaoImpl"/>
 	</bean>
 
 </beans>
