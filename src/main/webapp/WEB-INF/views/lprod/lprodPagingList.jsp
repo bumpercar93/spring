@@ -1,9 +1,10 @@
+<%@page import="kr.or.ddit.lprod.model.LprodVO"%>
 <%@page import="kr.or.ddit.paging.model.PageVO"%>
-<%@page import="kr.or.ddit.user.model.UserVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -16,43 +17,12 @@
 		<meta name="author" content="">
 		<link rel="icon" href="../../favicon.ico">
 		
-		<title>UserPagingList</title>
+		<title>LprodPagingList</title>
 		
 		<!-- css, js -->
 		<%@include file="/WEB-INF/views/common/basicLib.jsp" %>
-	
-	<style type="text/css">
-		.userTr:hover{
-			cursor: pointer;
-		}
-	</style>
-	
-	<script type="text/javascript">
-	
-		$(document).ready(function() {
-			
-			//사용자 tr태그 이벤트 등록
-			$(".userTr").on("click", function() {
-				console.log("userTr click");
-				// 현재 클릭한 userId 찾기
-				// 1.$(this).find(".userId").text();
-				// 2.$(this).data("userid");
-				
-				// 사용자 아이디를 userId 값으로 설정
-				var userId = $(this).find(".userId").text();
-				$("#userId").val(userId);
-				
-				// #frm을 이용하여 submit();
-				$("#frm").submit();
-			});
-			
-		});
-		
-	</script>
-	
 	</head>
-	
-	
+
 	<body>
 		<!-- header -->
 		<%@include file="/WEB-INF/views/common/header.jsp" %>
@@ -65,54 +35,43 @@
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<div class="row">
 						<div class="col-sm-8 blog-main">
-							<h2 class="sub-header">사용자(EL)</h2>
-							
-							<!-- 사용자 상세조회 : userId가 필요 -->
-							<form id="frm" action="${cp}/user/user" method="get">
-								<input type="hidden" id="userId" name="userId" />
-							</form>
-							
+							<h2 class="sub-header">사용자</h2>
 							<div class="table-responsive">
 								<table class="table table-striped">
 									<tr>
-										<th>사용자 아이디</th>
-										<th>사용자 이름</th>
-										<th>사용자 별명</th>
-										<th>등록일시</th>
+										<th>순번</th>
+										<th>상품분류코드</th>
+										<th>상품분류명</th>
 									</tr>
 									
-									<!-- 향상된 for -->
-									<c:forEach items="${userPagingList}" var="user" varStatus="status">
-										<tr class="userTr" data-userid="${user.userId}" data-name="${user.name}">
-										<%-- <td>${status.index} / ${status.count} / ${user.userId}</td> --%>
-											<td class="userId">${user.userId}</td>
-											<td>${user.name}</td>
-											<td>${user.alias}</td>
-											<td>2019.05.23</td>
+									<c:forEach items="${lprodList}" var="lprod">
+										<tr>
+											<td>${lprod.lprod_id}</td>
+											<td>${lprod.lprod_gu}</td>
+											<td>${lprod.lprod_nm}</td>
 										</tr>
 									</c:forEach>
-									
 								</table>
 							</div>
-							<a href="${cp}/user/form" class="btn btn-default pull-right">사용자 등록</a>
 							
-							<!-- 사용자수 : 105건, 페이지네이션 : 11건 -->
+							<a class="btn btn-default pull-right">사용자 등록</a>
+							
+							<!-- 전체수 : 9건, 페이지네이션 : 2건 -->
 							<div class="text-center">
 								<ul class="pagination">
-								
 									<c:choose>
 										<c:when test="${pageVO.page == 1}">
 											<li class="disabled"><span>«</span></li>
 										</c:when>
 										<c:otherwise>
 											<li>
-												<a href="${cp}/user/pagingList?
+												<a href="${cp}/lprod/pagingList?
 												page=${pageVO.page-1}&pageSize=${pageVO.pageSize}"><span>«</span></a>
 											</li>
 										</c:otherwise>
 									</c:choose>
-									
-									<c:forEach var="i" begin="1" end="${paginationSize}" step="1">
+										
+									<c:forEach var="i" begin="1" end="${paginationSize}">
 										<c:choose>
 											<c:when test="${pageVO.page == i}">
 												<li class="active">
@@ -121,25 +80,24 @@
 											</c:when>
 											<c:otherwise>
 												<li>
-													<a href="${cp}/user/pagingList?page=${i}
+													<a href="${cp}/lprod/pagingList?page=${i}
 													&pageSize=${pageVO.pageSize}">${i}</a>
 												</li>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>
-										
+									
 									<c:choose>
 										<c:when test="${pageVO.page == paginationSize}">
 											<li class="disabled"><span>»</span></li>
 										</c:when>
 										<c:otherwise>
 											<li>
-												<a href="${cp}/user/pagingList?
+												<a href="${cp}/lprod/pagingList?
 												page=${pageVO.page+1}&pageSize=${pageVO.pageSize}"><span>»</span></a>
 											</li>
 										</c:otherwise>
 									</c:choose>
-										
 								</ul>
 							</div>
 						</div>

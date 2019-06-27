@@ -1,6 +1,9 @@
 package kr.or.ddit.user.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class UserVO {
 	
@@ -11,9 +14,16 @@ public class UserVO {
 	private String addr1;
 	private String addr2;
 	private String zipcd;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 	private String path;
 	private String filename;
+	
+	public String getBirthstr() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		if(birth == null) return "";
+		return sdf.format(birth);
+	}
 	
 	public Date getBirth() {
 		return birth;

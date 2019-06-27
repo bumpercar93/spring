@@ -91,7 +91,7 @@
 						<h2 class="sub-header">사용자 수정</h2>
 						
 						<form id="frm" class="form-horizontal" role="form" 
-							action="${cp}/userModify" method="post"
+							action="${cp}/user/modify" method="post"
 									enctype="multipart/form-data">
 
 							<div class="form-group">
@@ -109,13 +109,13 @@
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="pass" class="col-sm-2 control-label">비밀빈호</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="pass" 
-											name="pass" placeholder="비밀빈호">
-								</div>
-							</div>
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="pass" class="col-sm-2 control-label">비밀빈호</label> -->
+<!-- 								<div class="col-sm-10"> -->
+<!-- 									<input type="password" class="form-control" id="pass"  -->
+<!-- 											name="pass" placeholder="비밀빈호"> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 							
 							<div class="form-group">
 								<label for="name" class="col-sm-2 control-label">사용자 이름</label>

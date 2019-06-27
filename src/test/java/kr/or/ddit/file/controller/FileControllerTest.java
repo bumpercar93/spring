@@ -54,7 +54,6 @@ public class FileControllerTest extends ControllerTestEnv {
 	 * @throws Exception 
 	 * @throws IOException 
 	 */
-	@Ignore
 	@Test
 	public void uploadTest() throws IOException, Exception {
 		/***Given***/
