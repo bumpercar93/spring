@@ -30,6 +30,11 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function() {
+		<c:if test="${not empty msg}">
+			alert("${msg}");
+// 			<c:remove var="msg"/>
+		</c:if>
+		
 		$("#modifyBtn").on("click", function() {
 			var userId = $("#idLabel").text();
 			$("#userId").val(userId);

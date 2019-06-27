@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.or.ddit.encryt.kisa.sha256.KISA_SHA256;
 import kr.or.ddit.paging.model.PageVO;
@@ -231,7 +232,8 @@ public class UserController {
 	* Method 설명 : 사용자 수정
 	 */
 	@RequestMapping(path = "/modify", method = RequestMethod.POST)
-	public String userModify(UserVO userVO, MultipartFile profile, HttpSession session, Model model) {
+	public String userModify(UserVO userVO, MultipartFile profile, 
+							HttpSession session, Model model, RedirectAttributes redirectAttributes) {
 		//추후 ajax 요청으로 분리
 		//userVO.setPass(KISA_SHA256.encrypt(userVO.getPass()));
 		
@@ -254,7 +256,10 @@ public class UserController {
 		
 		int updateCnt = userService.updateUser(userVO);
 		if(updateCnt > 0) {
-			return "redirect:/user/user?userId=" + userVO.getUserId();
+			//session.setAttribute("msg", "등록되었습니다");
+			redirectAttributes.addFlashAttribute("msg", "등록되었습니다"); // 한번만 사용하고 자동 삭제
+			redirectAttributes.addAttribute("userId", userVO.getUserId()); // 파라미터를 자동으로 붙여준다
+			return "redirect:/user/user";
 		}else {
 			return userModify(userVO.getUserId(), model);
 		}
