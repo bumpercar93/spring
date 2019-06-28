@@ -37,7 +37,7 @@ public class MainControllerTest extends ControllerTestEnv {
 		String viewName = mav.getViewName();
 		String userId = (String) mav.getModel().get("mainUserId");
 		/***Then***/
-		assertEquals(viewName, "main");
+		assertEquals(viewName, "tiles.main");
 		assertEquals(userId, "brown");
 		assertNotNull(mav.getModel().get("rangers"));
 		assertNotNull(mav.getModel().get("userVO"));
@@ -49,7 +49,7 @@ public class MainControllerTest extends ControllerTestEnv {
 		// MockMvcResultMatchers를 이용한 방식
 		mockMvc.perform(get("/main"))
 			.andExpect(status().isOk())
-			.andExpect(view().name("main"))
+			.andExpect(view().name("tiles.main"))
 			.andExpect(model().attribute("mainUserId", "brown"))
 			.andExpect(model().attributeExists("rangers"))
 			.andExpect(model().attributeExists("userVO"));
@@ -92,7 +92,7 @@ public class MainControllerTest extends ControllerTestEnv {
 	public void pathvariableTest() throws Exception {
 		mockMvc.perform(get("/main/pathvariable/brown"))
 						.andExpect(status().isOk())
-						.andExpect(view().name("main"));
+						.andExpect(view().name("tiles.main"));
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public class MainControllerTest extends ControllerTestEnv {
 	public void pathvariableTest2() throws Exception {
 		mockMvc.perform(get("/main/pathvariable/sally"))
 						.andExpect(status().is(200))
-						.andExpect(view().name("main"));
+						.andExpect(view().name("tiles.main"));
 	}
 	
 	/**
@@ -122,7 +122,7 @@ public class MainControllerTest extends ControllerTestEnv {
 	public void requestHeaderTest() throws Exception {
 		mockMvc.perform(get("/main/header").accept("text/html"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("main"));
+		.andExpect(view().name("tiles.main"));
 	}
 	
 }

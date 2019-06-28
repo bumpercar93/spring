@@ -49,7 +49,7 @@ public class LoginControllerTest extends ControllerTestEnv {
 		MvcResult mvcResult = mockMvc.perform(get("/login").sessionAttr("USER_INFO", new UserVO())).andReturn();
 		ModelAndView mav = mvcResult.getModelAndView();
 		/***Then***/
-		assertEquals("main", mav.getViewName());
+		assertEquals("tiles.main", mav.getViewName());
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class LoginControllerTest extends ControllerTestEnv {
 		UserVO userVO = (UserVO) session.getAttribute("USER_INFO");
 		
 		/***Then***/
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 		assertEquals("브라운", userVO.getName());
 		assertEquals("곰", userVO.getAlias());
 	}

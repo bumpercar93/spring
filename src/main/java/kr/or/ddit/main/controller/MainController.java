@@ -84,7 +84,7 @@ public class MainController {
 		
 		model.addAttribute("mainUserId","brown");
 		
-		return "main";
+		return "tiles.main";
 	}
 	
 	/**
@@ -126,7 +126,7 @@ public class MainController {
 	@RequestMapping("/main/pathvariable/{userId}")
 	public String pathvariable(@PathVariable("userId") String userId) {
 		logger.debug("userId : {}", userId);
-		return "main";
+		return "tiles.main";
 	}
 	
 	/**
@@ -141,7 +141,7 @@ public class MainController {
 	@RequestMapping("/main/header")
 	public String header(@RequestHeader(name = "Accept"/*, required = false*/) String accept) {
 		logger.debug("Accept : {}", accept);
-		return "main";
+		return "tiles.main";
 	}
 	
 	@RequestMapping("/main/view")
@@ -178,7 +178,7 @@ public class MainController {
 		
 		logger.debug("mainVO : {}", mainVO);
 		
-		return "main";
+		return "tiles.main";
 	}
 	
 }

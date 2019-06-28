@@ -65,7 +65,7 @@ public class UserControllerTest extends ControllerTestEnv{
 		int paginationSize = (int) mav.getModel().get("paginationSize");
 
 		/***Then***/
-		assertEquals("user/userPagingList", viewName);
+		assertEquals("user/tiles.userPagingList", viewName);
 		assertEquals(1, pageVO.getPage());
 		assertEquals(10, pageVO.getPageSize());
 		assertEquals(10, userList.size());
@@ -86,7 +86,7 @@ public class UserControllerTest extends ControllerTestEnv{
 
 		/***When***/
 		mockMvc.perform(get("/user/pagingList"))
-				.andExpect(view().name("user/userPagingList"))
+				.andExpect(view().name("user/tiles.userPagingList"))
 				.andExpect(model().attributeExists("userPagingList"))
 				.andExpect(model().attributeExists("pageVO"))
 				.andExpect(model().attribute("paginationSize", 11))
@@ -253,7 +253,7 @@ public class UserControllerTest extends ControllerTestEnv{
 												.param("addr2", "testAddr2")
 												.param("zipcd", "12345")
 												.param("birth", "1993-10-17"))
-												.andExpect(view().name("redirect:/user/user?userId=brown"));
+												.andExpect(view().name("redirect:/user/user"));
 	}
 	
 	
