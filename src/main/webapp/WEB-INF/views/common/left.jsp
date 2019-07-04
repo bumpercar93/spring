@@ -10,5 +10,6 @@
 		<li class="active"><a href="${cp}/lprod/pagingList">Lprod List</a></li>
 		<li class="active"><a href="${cp}/requestCount">Request Count</a></li>
 		<li class="active"><a href="${cp}/sessionView">Session View</a></li>
+		<li class="active"><a href="${cp}/ajax/view">AJAX View</a></li>
 	</ul>
 </div>
