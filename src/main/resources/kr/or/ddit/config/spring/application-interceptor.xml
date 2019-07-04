@@ -23,7 +23,7 @@
 <!-- 			<bean class="kr.or.ddit.interceptor.SessionCheckInterceptor" /> -->
 <!-- 		</mvc:interceptor> -->
 		
-		<!-- localeChang Interceptor -->
+		<!-- localeChange Interceptor -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
 			<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
