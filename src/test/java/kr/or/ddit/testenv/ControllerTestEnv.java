@@ -18,12 +18,19 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import kr.or.ddit.config.spring.ApplicationContext;
+import kr.or.ddit.config.spring.ApplicationDatasourceDev;
+import kr.or.ddit.config.spring.ApplicationTransaction;
+import kr.or.ddit.config.spring.RootContext;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({
-	   "classpath:kr/or/ddit/config/spring/application-context.xml",
-	   "classpath:kr/or/ddit/config/spring/root-context.xml",
-	   "classpath:kr/or/ddit/config/spring/application-datasource-dev.xml",
-	   "classpath:kr/or/ddit/config/spring/application-transaction.xml"})
+//@ContextConfiguration({
+//	   "classpath:kr/or/ddit/config/spring/application-context.xml",
+//	   "classpath:kr/or/ddit/config/spring/root-context.xml",
+//	   "classpath:kr/or/ddit/config/spring/application-datasource-dev.xml",
+//	   "classpath:kr/or/ddit/config/spring/application-transaction.xml"})
+@ContextConfiguration(classes = {ApplicationContext.class, RootContext.class, 
+						ApplicationDatasourceDev.class, ApplicationTransaction.class})
 //일반 자바 환경 -> 웹 환경
 //applicationContext --> 웹 환경의 applicationContext생성 
 @WebAppConfiguration
