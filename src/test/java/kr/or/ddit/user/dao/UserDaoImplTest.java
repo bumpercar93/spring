@@ -139,7 +139,7 @@ public class UserDaoImplTest extends LogicTestEnv {
 	* Method : userPagingListTest
 	* 작성자 : PC06
 	* 변경이력 :
-	* Method 설명 : 용자 페이징 리스트 조회 테스트
+	* Method 설명 : 사용자 페이징 리스트 조회 테스트
 	 */
 	@Test
 	public void userPagingListTest() {

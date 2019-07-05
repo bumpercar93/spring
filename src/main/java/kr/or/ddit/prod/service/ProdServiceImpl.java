@@ -5,10 +5,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.ddit.prod.dao.IProdDao;
 import kr.or.ddit.prod.model.ProdVO;
 
+@Transactional
 @Service
 public class ProdServiceImpl implements IProdService{
 	

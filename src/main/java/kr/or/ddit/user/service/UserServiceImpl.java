@@ -7,11 +7,13 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.ddit.paging.model.PageVO;
 import kr.or.ddit.user.dao.IUserDao;
 import kr.or.ddit.user.model.UserVO;
 
+@Transactional
 @Service
 public class UserServiceImpl implements IUserService {
 	
